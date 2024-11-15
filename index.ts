@@ -22,9 +22,10 @@ const server = Bun.serve({
   fetch,
 });
 
-setInterval(async () => {
-  await reloadStaticRoutes();
-  server.reload({ fetch, static: state.staticRoutes });
-}, 500);
+// Only for dev
+// setInterval(async () => {
+//   await reloadStaticRoutes();
+//   server.reload({ fetch, static: state.staticRoutes });
+// }, 500);
 
 console.log(`Listening on ${server.url}`);
