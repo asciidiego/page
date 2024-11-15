@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diego</title>
+
+    <style>
+      body {
+        /* node layout */
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+
+        /* content layout */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* colors */
+        background: dimgray;
+
+        /* details */
+        /* -> vignette */
+        box-shadow: inset 0 0 128px 0px rgba(0, 0, 0, 0.2);
+
+        /* interaction */
+        z-index: -1;
+
+        font-family: "Apple Garamond", "Lucida Sans", "Lucida Grande";
+      }
+
+      .page {
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+        /* Moleskine-like color and texture */
+        background-color: #f5f5e9; /* Base cream color */
+
+        background-image:
+        /* Dots aligned with text baseline */ radial-gradient(
+          circle at center,
+          rgba(0, 0, 0, 0.03) 1px,
+          transparent 1px
+        );
+
+        /* Adjust grid size to match text rhythm */
+        background-size: 24px 24px, 200px 200px;
+
+        /* Adjust starting position to align with text */
+        background-position: 64px 72px, center;
+
+        /* Make sure patterns tile properly */
+        background-repeat: repeat, repeat;
+
+        height: 720px;
+        width: 480px;
+        padding-left: 64px;
+        padding-right: 64px;
+        padding-top: 72px;
+        padding-bottom: 48px;
+        display: flex;
+        flex-direction: column;
+
+        z-index: 0;
+        pointer-events: all;
+      }
+
+      /* Enhance text contrast slightly */
+      .page * {
+        color: rgba(0, 0, 0, 0.82);
+      }
+
+      /* Optional: add slight texture to the shadow */
+      .page::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.02);
+        border-radius: 4px;
+        pointer-events: none;
+      }
+
+      ::selection {
+        background-color: var(
+          --highlight-color,
+          rgba(0, 255, 0, 0.6)
+        ); /* Semi-transparent green */
+        color: inherit;
+        background-image: none;
+        background-color: rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      ::-moz-selection {
+        background-color: var(
+          --highlight-color,
+          rgba(0, 255, 0, 0.6)
+        ); /* Semi-transparent green */
+        color: inherit;
+        background-image: none;
+        background-color: rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        font-size: 24px;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 8px;
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 8px;
+      }
+
+      header {
+        margin-bottom: 16px;
+      }
+
+      main {
+        line-height: 18px;
+        flex-grow: 1;
+        text-align: justify;
+      }
+
+      footer {
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page" oncontextmenu="handleContextMenu(event)">
+      <header>
+        <p>
+          <small>
+            <span> Diego Rodriguez </span>
+          </small>
+        </p>
+      </header>
+
+      <main>
+        <h1 style="margin-bottom: 24px">It's only a page</h1>
+
+        <p>Dear visitor,</p>
+
+        <p>
+          Thank you for your attention; it's always exciting to me when my
+          friends and strangers can just read my words from anywhere almost
+          instantly.
+        </p>
+
+        <p>
+          You won't find much here. And by that I mean that you won't find much
+          stuff that most people were not already taking for granted. This page
+          is quite literally just that, a page. I spent time making it look like
+          a sheet of paper. When you attempt the brave art of making things,
+          you'll be forced to notice details well. If you don't, the gap between
+          the concept and the thing will enlarge.
+        </p>
+
+        <p>
+          In the case of this page, I made it using a little bit more than HTML,
+          yet it took me a few hours. Granted, I typed almost every character
+          myself and I did not use artificial intelligence in the process. I see
+          activities like that one as mental exercises to avoid taking things
+          for granted.
+        </p>
+
+        <p>
+          Minds, our only vehicles for self-awareness, default to assuming
+          rather than thinking or admiring. And while our DNA did not give us
+          great ideas per se and made it such that we lose our child-like wonder
+          as we grow, it gave us the capacity to learn; you can learn how to
+          marvel and think well. A big part of it is noticing and then letting
+          others know, great artists do that all the time.
+        </p>
+
+        <p>
+          This text you are reading; the language you learned and exploit to
+          parse these words; the beams of red, green, and yellow visible light
+          emitted to your eyes through efficient diodes that convey you
+          information... These were designed. And the designers who did it are,
+          for the most part, just like you.
+        </p>
+
+        <p>
+          Whether you think of yourself as an artist or not, I encourage you to
+          live your life like one: noticing. The pencil graphite cracking as you
+          scribe, the soothing feelings as you hug loved ones, and the story
+          behind many concepts that, together, gave birth to beautiful things.
+        </p>
+
+        <p>
+          Notice the everything and the nothing; life is better when you do
+          that.
+        </p>
+
+        <p style="margin-top: 24px">
+          <i> Even when it's only a page. </i>
+        </p>
+      </main>
+
+      <footer>
+        <hr />
+        <small>
+          <p>San Francisco, California, USA.</p>
+        </small>
+      </footer>
+    </div>
+    <style>
+      .custom-context-menu {
+        position: fixed;
+        display: none;
+        background: #f1f1f1;
+        border: 0.5px solid rgba(0, 0, 0, 0.04);
+        border-radius: 6px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1),
+          0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 4px 6px; /* Reduced padding */
+        z-index: 1000;
+        font-family: "Lucida Grande", "Lucida Sans", sans-serif;
+        font-size: 14px;
+        text-shadow: 0 1px 0 #fff;
+        width: 200px; /* Fixed width */
+      }
+
+      .custom-context-menu-button {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "Apple Garamond", "Times New Roman", serif;
+        font-size: 16px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px 6px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .custom-context-menu-button:hover {
+        background-color: #d5d5d5; /* Add hover effect */
+      }
+    </style>
+    <div class="custom-context-menu" id="customContextMenu">
+      <button class="custom-context-menu-button" onclick="defineSelectedWord()">
+        <span>Look up</span>
+        <span data-selection></span>
+      </button>
+    </div>
+
+    <script>
+      let word = "";
+      const menu = document.getElementById("customContextMenu");
+
+      function defineSelectedWord() {
+        if (word && word.split(" ").length === 1) {
+          window.open(
+            `https://www.merriam-webster.com/dictionary/${word}`,
+            "_blank"
+          );
+
+          menu.style.display = "none";
+        }
+      }
+
+      // Hide menu when clicking elsewhere
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest("#customContextMenu")) {
+          menu.style.display = "none";
+        }
+      });
+
+      // Handle the contextmenu event, but keep it such that only the button click triggers the lookup
+      function handleContextMenu(e) {
+        word = window.getSelection().toString().trim();
+        if (!word || word.split(" ").length !== 1) return;
+
+        e.preventDefault();
+
+        menu.style.display = "block";
+        menu.style.left = `${e.clientX}px`;
+        menu.style.top = `${e.clientY}px`;
+
+        menu.querySelector("span[data-selection]").textContent = `"${word}"`;
+
+        e.stopPropagation();
+      }
+    </script>
+  </body>
+</html>
