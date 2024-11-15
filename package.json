@@ -2,8 +2,13 @@
   "name": "site",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "build": "bunx --bun vite build",
+    "dev": "bunx --bun vite dev"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "vite": "^5.4.11"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
