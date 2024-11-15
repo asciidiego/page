@@ -6,13 +6,12 @@
     <style>
       body {
         /* node layout */
-        position: fixed;
-        left: 0;
-        top: 0;
+        position: relative; /* instead of fixed */
+        min-height: 100vh;
         width: 100%;
-        height: 100%;
         margin: 0;
-        padding: 0;
+        padding: 16px; /* Add some breathing room */
+        box-sizing: border-box;
 
         /* content layout */
         display: flex;
@@ -30,6 +29,7 @@
         z-index: -1;
 
         font-family: "Apple Garamond", "Lucida Sans", "Lucida Grande";
+        font-size: 16px;
       }
 
       .page {
@@ -55,17 +55,18 @@
         /* Make sure patterns tile properly */
         background-repeat: repeat, repeat;
 
-        height: 720px;
-        width: 480px;
+        min-height: min(720px, calc(100vh - 32px));
+        width: min(480px, calc(100vw - 32px));
+
+        display: flex;
+        overflow-y: auto;
+        flex-direction: column;
+        z-index: 0;
+
         padding-left: 64px;
         padding-right: 64px;
         padding-top: 72px;
         padding-bottom: 48px;
-        display: flex;
-        flex-direction: column;
-
-        z-index: 0;
-        pointer-events: all;
       }
 
       /* Enhance text contrast slightly */
@@ -73,17 +74,9 @@
         color: rgba(0, 0, 0, 0.82);
       }
 
-      /* Optional: add slight texture to the shadow */
-      .page::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.02);
-        border-radius: 4px;
-        pointer-events: none;
+      /* Optional: Hide scrollbar but keep functionality */
+      .page::-webkit-scrollbar {
+        width: 0px;
       }
 
       ::selection {
@@ -132,6 +125,8 @@
       }
 
       footer {
+        font-size: 12px;
+        font-family: "Lucida Grande", "Times New Roman", serif;
       }
     </style>
   </head>
@@ -142,6 +137,8 @@
         <p>
           <small>
             <span> Diego Rodriguez </span>
+            <br />
+            <span> San Francisco, California, USA </span>
           </small>
         </p>
       </header>
@@ -203,7 +200,7 @@
           that.
         </p>
 
-        <p style="margin-top: 24px">
+        <p style="margin-top: 16px">
           <i> Even when it's only a page. </i>
         </p>
       </main>
@@ -211,10 +208,11 @@
       <footer>
         <hr />
         <small>
-          <p>San Francisco, California, USA.</p>
+          <p>2024</p>
         </small>
       </footer>
     </div>
+
     <style>
       .custom-context-menu {
         position: fixed;
