@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diego</title>
+
+    <style>
+      body {
+        /* node layout */
+        position: relative; /* instead of fixed */
+        min-height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 16px; /* Add some breathing room */
+        box-sizing: border-box;
+
+        /* content layout */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* colors */
+        background: dimgray;
+
+        /* details */
+        /* -> vignette */
+        box-shadow: inset 0 0 128px 0px rgba(0, 0, 0, 0.2);
+
+        /* interaction */
+        z-index: -1;
+
+        font-family: "Apple Garamond", "Lucida Sans", "Lucida Grande";
+        font-size: 16px;
+      }
+
+      .page {
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+        /* Moleskine-like color and texture */
+        background-color: #f5f5e9; /* Base cream color */
+
+        background-image:
+        /* Dots aligned with text baseline */ radial-gradient(
+          circle at center,
+          rgba(0, 0, 0, 0.03) 1px,
+          transparent 1px
+        );
+
+        /* Adjust grid size to match text rhythm */
+        background-size: 24px 24px, 200px 200px;
+
+        /* Adjust starting position to align with text */
+        background-position: 64px 72px, center;
+
+        /* Make sure patterns tile properly */
+        background-repeat: repeat, repeat;
+
+        min-height: min(720px, calc(100vh - 32px));
+        width: min(480px, calc(100vw - 32px));
+
+        display: flex;
+        overflow-y: auto;
+        flex-direction: column;
+        z-index: 0;
+
+        padding-left: 64px;
+        padding-right: 64px;
+        padding-top: 72px;
+        padding-bottom: 48px;
+      }
+
+      /* Enhance text contrast slightly */
+      .page * {
+        color: rgba(0, 0, 0, 0.82);
+      }
+
+      /* Optional: Hide scrollbar but keep functionality */
+      .page::-webkit-scrollbar {
+        width: 0px;
+      }
+
+      ::selection {
+        background-color: var(
+          --highlight-color,
+          rgba(0, 255, 0, 0.6)
+        ); /* Semi-transparent green */
+        color: inherit;
+        background-image: none;
+        background-color: rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      ::-moz-selection {
+        background-color: var(
+          --highlight-color,
+          rgba(0, 255, 0, 0.6)
+        ); /* Semi-transparent green */
+        color: inherit;
+        background-image: none;
+        background-color: rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        font-size: 24px;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 8px;
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 8px;
+      }
+
+      header {
+        margin-bottom: 16px;
+      }
+
+      main {
+        line-height: 18px;
+        flex-grow: 1;
+        text-align: justify;
+      }
+
+      footer {
+        font-size: 12px;
+        font-family: "Lucida Grande", "Times New Roman", serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page" oncontextmenu="handleContextMenu(event)">
+      <header>
+        <p>
+          <small>
+            <span> Diego Rodriguez </span>
+            <br />
+            <span> San Francisco, California, USA </span>
+          </small>
+        </p>
+      </header>
+
+      <main>
+        <h1 style="margin-bottom: 24px">Special</h1>
+
+        <p>FROM: <i>me</i></p>
+        <p>
+          TO:
+          <i
+            onclick="document.querySelector('audio').play();"
+            style="cursor: pointer; text-decoration: underline; color: #00f"
+            >you</i
+          >
+        </p>
+
+        <picture>
+          <img
+            src="clock.jpg"
+            alt="A clock"
+            style="max-width: 100%; height: auto"
+          />
+        </picture>
+
+        <audio src="./u_me.mp3"></audio>
+
+        <p style="margin-top: 16px">
+          <i> February 14, 2025 </i>
+        </p>
+      </main>
+
+      <footer>
+        <hr />
+        <small>
+          <p>2024</p>
+        </small>
+      </footer>
+    </div>
+
+    <style>
+      .custom-context-menu {
+        position: fixed;
+        display: none;
+        background: #f1f1f1;
+        border: 0.5px solid rgba(0, 0, 0, 0.04);
+        border-radius: 6px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1),
+          0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 4px 6px; /* Reduced padding */
+        z-index: 1000;
+        font-family: "Lucida Grande", "Lucida Sans", sans-serif;
+        font-size: 14px;
+        text-shadow: 0 1px 0 #fff;
+        width: 200px; /* Fixed width */
+      }
+
+      .custom-context-menu-button {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "Apple Garamond", "Times New Roman", serif;
+        font-size: 16px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px 6px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .custom-context-menu-button:hover {
+        background-color: #d5d5d5; /* Add hover effect */
+      }
+    </style>
+    <div class="custom-context-menu" id="customContextMenu">
+      <button class="custom-context-menu-button" onclick="defineSelectedWord()">
+        <span>Look up</span>
+        <span data-selection></span>
+      </button>
+    </div>
+
+    <script>
+      let word = "";
+      const menu = document.getElementById("customContextMenu");
+
+      function defineSelectedWord() {
+        if (word && word.split(" ").length === 1) {
+          window.open(
+            `https://www.merriam-webster.com/dictionary/${word}`,
+            "_blank"
+          );
+
+          menu.style.display = "none";
+        }
+      }
+
+      // Hide menu when clicking elsewhere
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest("#customContextMenu")) {
+          menu.style.display = "none";
+        }
+      });
+
+      // Handle the contextmenu event, but keep it such that only the button click triggers the lookup
+      function handleContextMenu(e) {
+        word = window.getSelection().toString().trim();
+        if (!word || word.split(" ").length !== 1) return;
+
+        e.preventDefault();
+
+        menu.style.display = "block";
+        menu.style.left = `${e.clientX}px`;
+        menu.style.top = `${e.clientY}px`;
+
+        menu.querySelector("span[data-selection]").textContent = `"${word}"`;
+
+        e.stopPropagation();
+      }
+    </script>
+  </body>
+</html>

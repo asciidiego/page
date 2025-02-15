@@ -3,8 +3,8 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "build": "bunx --bun vite build",
-    "dev": "bunx --bun vite dev"
+    "build": "bun x --bun vite build",
+    "dev": "bun x --bun vite dev"
   },
   "devDependencies": {
     "@types/bun": "latest",
