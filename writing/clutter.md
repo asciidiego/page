@@ -13,9 +13,9 @@ But, how does one take care of one's mind?  In the same way we take
 care of our body.
 
 Assuming our mind is in reasonable shape, we can improve our minds
-in the same way we improve reasonably fit bodies: training [^1].  Though,
-as with most worthy things in life, the steps are simple to list
-but hard to follow:
+in the same way we improve reasonably fit bodies: training [^1].
+Though, as with most worthy things in life, the steps are simple
+to list but hard to follow:
 
 - train it;
 
