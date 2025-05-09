@@ -3,12 +3,10 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "build": "bun x --bun vite build",
-    "dev": "bun x --bun vite dev"
+    "dev": "bun ./index.ts"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.12",
-    "vite": "^5.4.19"
+    "@types/bun": "^1.2.12"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
